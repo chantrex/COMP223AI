@@ -1,12 +1,12 @@
  '''
 @author: Devangini Patel
 '''
-
+import os
 from Node import Node
 from State import State
 from collections import deque
 
-def performQueueBFS(graphX, person1, person2):
+def BFS_christopher(graphX, person1, person2):
     """
     This function performs BFS search using a queue
     """
@@ -27,15 +27,17 @@ def performQueueBFS(graphX, person1, person2):
         #get first item in queue
         currentNode = queue.popleft()
         
-        print (("-- dequeue --"), currentNode.state.name)
+        #print (("-- dequeue --"), currentNode.state.name)
         
         #check if this is goal state
         if currentNode.state.name == person2:
             print ("reached goal state")
             #print the path
             print ("----------------------")
-            print ("Path")
+            print ("This is the Path that tou need to follow for mmeeting too ", person2)
             currentNode.printPath()
+            bestPath = currentNode
+            return False
             break           
         childStates = currentNode.state.successorFunction()
         for childState in childStates:
@@ -56,9 +58,13 @@ def performQueueBFS(graphX, person1, person2):
     print ("----------------------")
     print ("Tree")
     root.printTree()
-    
+    return bestPath
+
 print ("Get")
 graphX = "Graph"
-person1 = "George"
-person2 = "Frank"
-performQueueBFS(graphX, person1, person2)
+person1 = input("Please, Introduce your origin person : ")
+person2 = input("Please, Introduce your goal person : ")
+option = True
+option = BFS_christopher(graphX, person1, person2)
+
+    
