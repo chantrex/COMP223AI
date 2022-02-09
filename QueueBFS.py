@@ -15,7 +15,8 @@ def performQueueBFS(graphX, person1, person2):
     #since it is a graph, we create visited list
     visited = [] 
     #create root node
-    initialState = State()
+    initialState = State(person1)
+#--------------------------------------------------------    
     root = Node(initialState)
     #add to queue and visited list
     queue.append(root)    
@@ -29,14 +30,13 @@ def performQueueBFS(graphX, person1, person2):
         print (("-- dequeue --"), currentNode.state.name)
         
         #check if this is goal state
-        if currentNode.state.checkGoalState():
+        if currentNode.state.name == person2:
             print ("reached goal state")
             #print the path
             print ("----------------------")
             print ("Path")
             currentNode.printPath()
             break           
-        #get the child nodes 
         childStates = currentNode.state.successorFunction()
         for childState in childStates:
             
@@ -57,7 +57,8 @@ def performQueueBFS(graphX, person1, person2):
     print ("Tree")
     root.printTree()
     
+print ("Get")
 graphX = "Graph"
-person1 = "Geprge"
-person2 = "Dolly"
+person1 = "George"
+person2 = "Frank"
 performQueueBFS(graphX, person1, person2)
