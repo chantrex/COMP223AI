@@ -6,7 +6,7 @@ from Node import Node
 from State import State
 from collections import deque
 
-def performQueueBFS():
+def performQueueBFS(graphX, person1, person2):
     """
     This function performs BFS search using a queue
     """
@@ -57,4 +57,7 @@ def performQueueBFS():
     print ("Tree")
     root.printTree()
     
-performQueueBFS()
+graphX = "Graph"
+person1 = "Geprge"
+person2 = "Dolly"
+performQueueBFS(graphX, person1, person2)
