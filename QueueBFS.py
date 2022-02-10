@@ -38,8 +38,14 @@ def BFS_christopher(graphX, person1, person2):
             currentNode.printPath()
             bestPath = currentNode
             return False
-            break           
-        childStates = currentNode.state.successorFunction()
+            break
+        try:
+            childStates = currentNode.state.successorFunction()
+        except:
+            print ("Frien does not exist")
+            return 2
+            continue
+
         for childState in childStates:
             
             childNode = Node(State(childState))
@@ -64,7 +70,9 @@ print ("Get")
 graphX = "Graph"
 person1 = input("Please, Introduce your origin person : ")
 person2 = input("Please, Introduce your goal person : ")
-option = True
+option = 0
 option = BFS_christopher(graphX, person1, person2)
+option
+
 
     
