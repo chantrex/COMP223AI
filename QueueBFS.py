@@ -83,7 +83,7 @@ while option != 1:
     if option == 2:
             print ("Sorry. we can't find :", person1)
     if option == 3:
-            print ("Sorry. no one knows ", person1)
+            print ("Sorry. no one knows ", person2)
 
 print("Thank you..")
 
