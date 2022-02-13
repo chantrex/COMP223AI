@@ -74,6 +74,8 @@ def BFS_christopher(graphX, person1, person2):
 
 graphX = "Graph"
 option = 0
+
+# 
 while option != 1:
     person1 = input("Please, Introduce your origin person : ")
     person2 = input("Please, Introduce your goal person : ")
